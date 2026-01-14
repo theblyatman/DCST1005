@@ -1,0 +1,19 @@
+
+$LEVEL1_OU = "InfraIT_Users", "InfraIT_Computers", "InfraIT_Groups"
+
+#Remove-ADOrganizationalUnit -Identity "OU=UserAccounts,DC=InfraIT,DC=sec" -Recursive -Confirm:$False
+
+#New-ADOrganizationalUnit -Name "UserAccounts" -Path "OU=UserAccounts,DC=InfraIT,DC=sec" -ProtectedFromAccidentalDeletion $False
+
+$AD_OUs = Get-ADOrganizationalUnit -Filter * | Select-Object -ExpandProperty Name
+
+foreach ($L1 in $LEVEL1_OU){
+    if (!($AD_OUs -contains $L1)){
+        Write-Host "$L1 eksisterer allerede: skipper den" -ForegroundColor Yellow
+    } else {
+        Remove-ADOrganizationalUnit -Identity "OU=$L1,DC=InfraIT,DC=sec" -Recursive -Confirm:$False
+
+        Write-Host "La til OU $L1" -ForegroundColor Green
+    }
+}   
+
