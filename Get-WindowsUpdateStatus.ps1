@@ -4,7 +4,7 @@
 #>
 [CmdletBinding()]
 param(
-    [string[]]$ComputerName = @('cl1.infrait.sec')
+    [string[]]$ComputerName = @('cl1.infrait.sec', 'dc1.infrait.sec', 'srv1.infrait.sec','mgr.infrait.sec')
 )
 
 $Results = foreach ($Computer in $ComputerName) {
