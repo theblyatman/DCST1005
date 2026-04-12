@@ -66,3 +66,4 @@ catch {
     Invoke-WebRequest -UseBasicParsing -Uri "https://gbl.his.arc.azure.com/log" -Method "PUT" -Body ($logBody | ConvertTo-Json) | out-null;
     Write-Host  -ForegroundColor red $_.Exception;
 }
+

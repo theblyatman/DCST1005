@@ -1,0 +1,3 @@
+Synkroniseringstest opprettet: 20260412-133408
+Maskin: SRV1
+Bruker: adm_niki
